@@ -72,16 +72,12 @@ end function radiT1
 subroutine interpol(tin,xout)
       implicit none
       double precision tin,xout,temps(401),posis(401),t1,t2,x1,x2
-      integer i
+      integer i,n1
       common/dades/temps,posis
-      do i=1,401
-            if ((temps(i).lt.tin).and.(temps(i+1).gt.tin)) then
-                  t1 = temps(i)
-                  t2 = temps(i+1)
-                  x1 = posis(i)
-                  x2 = posis(i+1)
-                  xout = ((x2-x1)/(t2-t1))*(tin-t1)+x1
-                  exit
-            endif
-      enddo
+      n1 = int(tin*100.d0)
+      t1 = temps(n1)
+      t2 = temps(n1+1)
+      x1 = posis(n1)
+      x2 = posis(n1+1)
+      xout = ((x2-x1)/(t2-t1))*(tin-t1)+x1
 end subroutine interpol

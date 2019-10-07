@@ -10,8 +10,8 @@ set yzeroaxis
 set title "x^interpolació_3 vs. x_3"
 
 # define el rango de valores de los ejes que se muestra en pantalla
-set xrange[0:3]
-set yrange[0:51]
+set xrange[2.02:2.06]
+#set yrange[0:51]
 
 # define los títulos de los ejes
 set xlabel "Temps t (s)"
