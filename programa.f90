@@ -5,7 +5,7 @@
 
 program pre_practica_2
       implicit none
-      double precision t_j,t_intpol,w_o,L,x(4),temps(401),posis(401),xout
+      double precision t_j,t_intpol,w_o,L,x(4),temps(401),posis(401),xout,h
       double precision t,x1,x2,x3 ! Variables pel read(15,*)
       integer i
       character*42 fmt
@@ -35,10 +35,11 @@ program pre_practica_2
 ! Escriptura en un nou fitxer dels valors interpolats
       open(16, file="P2-19-20-res2.dat")
       t_intpol = 0
+      h = 3.d0/2000.d0
       do while (t_intpol.lt.3)
             call interpol(t_intpol,xout)
             write(16,fmt2) t_intpol,xout
-            t_intpol = t_intpol + 3.d0/2000.d0
+            t_intpol = t_intpol + h
       enddo
       close(16)
 end program pre_practica_2
